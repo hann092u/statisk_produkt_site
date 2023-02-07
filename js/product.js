@@ -9,7 +9,7 @@ function showProduct(product) {
   document.querySelector(".purchaseBox h3").textContent = product.productdisplayname;
   document.querySelector(".purchaseBox .brand").textContent = product.brandname;
   document.querySelector("img").src = `https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`;
-  document.querySelector(".purchaseBox .category").textContent = product.category;
+  document.querySelector(".purchaseBox .category").textContent = product.articletype;
   document.querySelector("dl .brand").textContent = product.productdisplayname;
   document.querySelector("dl .color").textContent = product.basecolour;
   document.querySelector("dl .id").textContent = product.id;

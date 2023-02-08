@@ -16,16 +16,19 @@ function showProduct(product) {
   //andre indhold
   copy.querySelector("h3").textContent = product.productdisplayname;
   copy.querySelector("img").src = `https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`;
-  copy.querySelector(".price").textContent = product.price;
+  copy.querySelector(".price").textContent = "DKK " + product.price + ",-";
   copy.querySelector(".brand").textContent = product.brandname;
   copy.querySelector(".category").textContent = product.articletype;
   if (product.soldout) {
     //product er udsolgt
-    document.querySelector("article").classList.add("soldOut");
+    copy.querySelector("article").classList.add("soldOut");
   }
   if (product.discount) {
-    document.querySelector("article").classList.add("discounted");
+    copy.querySelector(".discounted").classList.add("discounted");
+    copy.querySelector(".discounted").textContent = -product.discount + "%";
   }
+
+  copy.querySelector(".read-more").setAttribute("href", `product.html?id=${product.id}`);
   //appende
   document.querySelector("main").appendChild(copy);
 }

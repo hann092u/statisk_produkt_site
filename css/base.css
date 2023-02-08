@@ -22,7 +22,7 @@
 ––––––––––––––––––––––––––––––––– */
 :root {
   --color: #272727;
-  --background-color: white;
+  --background-color: rgb(235, 233, 233);
   --caret-color: #272727;
   --text-decoration-color: #c0bfc0;
   --text-decoration-color-hover: #272727;

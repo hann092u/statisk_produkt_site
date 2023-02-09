@@ -14,9 +14,16 @@ function showProduct(product) {
   //laver en kopi
   const copy = template.cloneNode(true);
   //andre indhold
+
+  /*let discNumber = product.discount;
+  let discPercent = discNumber / 100;
+  let multiply = product.price * discPercent;
+  let thePrice = product.price - multiply;*/
+
   copy.querySelector("h3").textContent = product.productdisplayname;
   copy.querySelector("img").src = `https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`;
   copy.querySelector(".price").textContent = product.price;
+
   copy.querySelector(".brand").textContent = product.brandname;
   copy.querySelector(".category").textContent = product.articletype;
   if (product.soldout) {

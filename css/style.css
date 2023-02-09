@@ -112,6 +112,15 @@ html {
   display: flex;
   justify-content: space-between;
 }
+.priceDisc {
+  text-decoration: line-through;
+}
+.hide {
+  display: none;
+}
+.priceNow {
+  font-weight: bolder;
+}
 .discounted > p {
   margin-bottom: 0;
 }
@@ -149,7 +158,7 @@ html {
   background: none;
 }
 .purchaseBox {
-  background: #d8d8d8;
+  background: #8d8c8c;
   color: var(--background-color);
   padding: 1rem;
 }

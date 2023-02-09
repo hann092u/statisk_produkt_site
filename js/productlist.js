@@ -17,18 +17,26 @@ function showProduct(product) {
   //laver en kopi
   const copy = template.cloneNode(true);
   //andre indhold
+  let discNumber = product.discount;
+  let discPercent = discNumber / 100;
+  let multiply = product.price * discPercent;
+  let thePrice = product.price - multiply;
+  let thisPrice = Math.round(thePrice);
   copy.querySelector("h3").textContent = product.productdisplayname;
   copy.querySelector("img").src = `https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`;
   copy.querySelector(".price").textContent = "DKK " + product.price + ",-";
   copy.querySelector(".brand").textContent = product.brandname;
   copy.querySelector(".category").textContent = product.articletype;
+
   if (product.soldout) {
     //product er udsolgt
     copy.querySelector("article").classList.add("soldOut");
   }
   if (product.discount) {
+    copy.querySelector(".discounted").classList.remove("hide");
     copy.querySelector(".discounted").classList.add("discounted");
-    copy.querySelector(".discounted").textContent = -product.discount + "%";
+    copy.querySelector(".discounted .percent").textContent = discNumber + "%";
+    copy.querySelector(".discounted .priceNow").textContent = "Now " + thisPrice + ",-";
   }
 
   copy.querySelector(".read-more").setAttribute("href", `product.html?id=${product.id}`);

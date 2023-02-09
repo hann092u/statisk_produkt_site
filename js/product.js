@@ -8,6 +8,11 @@ fetch("https://kea-alt-del.dk/t7/api/products/" + id)
 
 function showProduct(product) {
   console.log(product);
+  let discNumber = product.discount;
+  let discPercent = discNumber / 100;
+  let multiply = product.price * discPercent;
+  let thePrice = product.price - multiply;
+  let thisPrice = Math.trunc(thePrice);
   document.querySelector(".purchaseBox h3").textContent = product.productdisplayname;
   document.querySelector(".purchaseBox .brand").textContent = product.brandname;
   document.querySelector("img").src = `https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`;
@@ -16,6 +21,7 @@ function showProduct(product) {
   document.querySelector("dl .color").textContent = product.basecolour;
   document.querySelector("dl .id").textContent = product.id;
   document.querySelector(".price").textContent = "DKK " + product.price + ",-";
+  copy.querySelector(".discounted .priceNow").textContent = "Now " + thePrice + ",-";
   document.querySelector(".info h1").textContent = product.brandname;
   document.querySelector(".info .brandbio").textContent = product.brandbio;
   document.querySelector(".breadcrumbs .brand").textContent = product.productdisplayname;
